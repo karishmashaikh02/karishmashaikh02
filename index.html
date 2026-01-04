@@ -3,274 +3,511 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Professional Portfolio | R&D & Quality Engineer</title>
+<title>Karishma Shaikh | R&D Engineer</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --primary:#020617;
-  --secondary:#2563eb;
-  --accent:#22c55e;
-  --bg:#f8fafc;
+/* =====================
+   GLOBAL STYLES
+===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', 'Segoe UI', sans-serif;
 }
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:Montserrat;}
-html{scroll-behavior:smooth;}
-body{background:var(--bg);color:#1e293b;}
-
-/* ================= NAVBAR ================= */
-nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  background:#020617;
-  z-index:1000;
-}
-nav ul{
-  display:flex;
-  justify-content:center;
-  list-style:none;
-  padding:15px;
-}
-nav ul li a{
-  color:#e5e7eb;
-  text-decoration:none;
-  margin:0 15px;
-  font-weight:500;
-}
-nav ul li a:hover{color:var(--accent);}
-
-/* ================= GENERAL ================= */
-section{padding:100px 20px;}
-.container{max-width:1200px;margin:auto;}
-h2{text-align:center;font-size:34px;margin-bottom:50px;color:var(--primary);}
-
-/* ================= HOME ================= */
-#home{
-  height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:linear-gradient(135deg,#020617,#020617);
-  color:#e5e7eb;
-  text-align:center;
-}
-#home h1{font-size:48px;margin-bottom:10px;}
-#home p{font-size:18px;color:#94a3b8;}
-
-/* ================= ABOUT ================= */
-.about-box{
-  max-width:900px;
-  margin:auto;
-  background:#fff;
-  padding:40px;
-  border-radius:20px;
-  box-shadow:0 15px 40px rgba(0,0,0,.08);
+:root {
+  --primary: #6366f1;
+  --secondary: #0f172a;
+  --accent: #f59e0b;
+  --text: #334155;
+  --bg: #f8fafc;
+  --success: #10b981;
 }
 
-/* ================= R&D ELECTRONICS ================= */
-#rnd{
-  background:#020617;
-  color:#e5e7eb;
-  position:relative;
-  overflow:hidden;
+body {
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
 }
-.circuit{
-  position:absolute;
-  inset:0;
-  background:
-    repeating-linear-gradient(90deg, rgba(34,197,94,.08) 0 2px, transparent 2px 60px),
-    repeating-linear-gradient(0deg, rgba(34,197,94,.05) 0 2px, transparent 2px 60px);
-  animation:move 20s linear infinite;
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
 }
-@keyframes move{
-  from{background-position:0 0;}
-  to{background-position:600px 600px;}
+
+section {
+  padding: 90px 0;
 }
-.nodes{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:35px;
-  position:relative;
-  z-index:2;
+
+h1, h2, h3 {
+  color: var(--secondary);
 }
+
+/* =====================
+   HEADER
+===================== */
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: rgba(255,255,255,.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary), #4f46e5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-left: 28px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.mobile-menu {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* =====================
+   HERO
+===================== */
+.hero {
+  padding: 180px 0 150px;
+  background: linear-gradient(270deg,#6366f1,#f59e0b,#818cf8,#4f46e5);
+  background-size: 800% 800%;
+  animation: gradient 18s ease infinite;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes gradient {
+  0% {background-position:0% 50%}
+  50% {background-position:100% 50%}
+  100% {background-position:0% 50%}
+}
+
+/* BI Background Animation */
+.bi-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.data-grid {
+  position: absolute;
+  left: 6%;
+  top: 40%;
+  width: 260px;
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  gap: 6px;
+  opacity: .18;
+}
+
+.data-grid span {
+  height: 16px;
+  background: white;
+  border-radius: 4px;
+  animation: pulse 3s infinite;
+}
+
+.charts {
+  position: absolute;
+  right: 6%;
+  top: 36%;
+  width: 260px;
+  opacity: .22;
+}
+
+.line-chart polyline {
+  fill: none;
+  stroke: white;
+  stroke-width: 3;
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: draw 4s infinite;
+}
+
+.bar-chart {
+  display: flex;
+  gap: 12px;
+  height: 80px;
+  align-items: flex-end;
+  margin-top: 25px;
+}
+
+.bar-chart div {
+  width: 28px;
+  background: white;
+  border-radius: 6px 6px 0 0;
+  animation: bar 3s infinite;
+}
+
+@keyframes draw {
+  0% {stroke-dashoffset:300}
+  50% {stroke-dashoffset:0}
+  100% {stroke-dashoffset:300}
+}
+
+@keyframes bar {
+  0%,100% {transform:scaleY(.4)}
+  50% {transform:scaleY(1)}
+}
+
+@keyframes pulse {
+  0%,100% {opacity:.4}
+  50% {opacity:1}
+}
+
+/* HERO CONTENT */
+.hero .container {
+  position: relative;
+  z-index: 3;
+}
+
+.profile-img {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  border: 5px solid rgba(255,255,255,.3);
+  margin-bottom: 25px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-bottom: 35px;
+}
+
+.btn {
+  background: linear-gradient(135deg,var(--primary),#4f46e5);
+  color: white;
+  padding: 14px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 0 25px rgba(99,102,241,.5);
+}
+
+/* =====================
+   ABOUT / SKILLS / PROJECTS / EXPERIENCE
+===================== */
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
+  gap: 30px;
+  justify-items: center;
+}
+
+.skill-card {
+  width: 130px;
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255,255,255,.4);
+  border-radius: 18px;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(99,102,241,.2);
+  transition: .3s;
+}
+
+.skill-card:hover {
+  transform: translateY(-10px) scale(1.05);
+}
+
+.skill-card i {
+  font-size: 36px;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+/* =====================
+   R&D ELECTRONICS SPARKS
+===================== */
+#rnd {
+  position: relative;
+  background: #0f172a;
+  color: #e5e7eb;
+  overflow: hidden;
+  text-align: center;
+}
+
+#rnd .nodes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 50px;
+}
+
 .node{
-  background:rgba(15,23,42,.9);
-  padding:25px;
-  border-radius:18px;
-  animation:pulse 3s infinite;
-}
-@keyframes pulse{
-  0%{box-shadow:0 0 0 rgba(34,197,94,.6);}
-  70%{box-shadow:0 0 25px rgba(34,197,94,.8);}
-  100%{box-shadow:0 0 0 rgba(34,197,94,.6);}
-}
-.node h3{color:var(--accent);margin-bottom:10px;}
-.node ul{list-style:none;font-size:14px;}
-.node ul li{padding:6px 0;}
-
-/* ================= SKILLS ================= */
-.skill-group{margin-bottom:60px;}
-.skill-group h3{text-align:center;margin-bottom:25px;color:var(--secondary);}
-.skill-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:25px;
-}
-.skill-box{
-  background:#fff;
-  padding:25px;
-  border-radius:18px;
-  box-shadow:0 12px 30px rgba(0,0,0,.08);
-}
-.skill-box h4{margin-bottom:10px;}
-.skill-box ul{list-style:none;font-size:14px;}
-.skill-box ul li{padding:5px 0;}
-
-/* ================= CARDS ================= */
-.card-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
-}
-.card{
-  background:#fff;
-  padding:30px;
-  border-radius:20px;
-  box-shadow:0 15px 40px rgba(0,0,0,.08);
+  position: relative;
+  background: rgba(255,255,255,.05);
+  padding: 20px 25px;
+  border-radius: 15px;
+  width: 220px;
+  box-shadow: 0 0 15px rgba(22,163,74,.2);
 }
 
-/* ================= CONTACT ================= */
-#contact{
-  background:#020617;
-  color:#e5e7eb;
+.node h3{
+  margin-bottom: 10px;
+  color: #10b981;
 }
-.contact-links{
-  text-align:center;
-}
-.contact-links a{
-  color:#e5e7eb;
-  font-size:24px;
-  margin:0 12px;
-}
-.contact-links a:hover{color:var(--accent);}
 
-/* ================= FOOTER ================= */
-footer{
-  background:#020617;
-  text-align:center;
-  padding:20px;
-  color:#94a3b8;
+.node ul{
+  list-style: disc;
+  text-align: left;
+  padding-left: 20px;
+  color: #cbd5e1;
+}
+
+.spark{
+  position:absolute;
+  width:10px;
+  height:10px;
+  background:linear-gradient(45deg, #22c55e, #86efac);
+  border-radius:50%;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%) scale(0);
+  animation:flash 2s infinite ease-in-out;
+  pointer-events:none;
+}
+
+@keyframes flash{
+  0%,100%{transform:translate(-50%,-50%) scale(0);opacity:0;}
+  25%{transform:translate(-50%,-50%) scale(1.2);opacity:1;}
+  50%{transform:translate(-50%,-50%) scale(0.8);opacity:0.7;}
+  75%{transform:translate(-50%,-50%) scale(1);opacity:1;}
+}
+
+/* =====================
+   FOOTER
+===================== */
+footer {
+  background: linear-gradient(135deg,#0f172a,#1e293b);
+  color: white;
+  text-align: center;
+  padding: 45px 0;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  margin-bottom: 25px;
+}
+
+.social-links a {
+  color: white;
+  font-size: 22px;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .mobile-menu{display:block}
+  .hero h1{font-size:34px}
 }
 </style>
 </head>
 
 <body>
 
-<nav>
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#certifications">Certifications</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo">Portfolio</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#rnd">R&D</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="mobile-menu"><i class="fas fa-bars"></i></div>
+    </nav>
+  </div>
+</header>
 
-<section id="home">
-  <div>
-    <h1>Your Name</h1>
-    <p>R&D | Electronics | Quality Engineering Professional</p>
+<!-- HERO -->
+<section id="home" class="hero">
+
+  <!-- BI Animation -->
+  <div class="bi-bg">
+    <div class="data-grid">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <div class="charts">
+      <svg class="line-chart" width="260" height="80">
+        <polyline points="0,60 40,40 80,45 120,20 160,35 200,15 260,30"/>
+      </svg>
+      <div class="bar-chart">
+        <div></div><div></div><div></div><div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <img src="https://raw.githubusercontent.com/shahedshaikh/shahedshaikh/main/Shahid.png" class="profile-img">
+    <h1>Karishma Shaikh</h1>
+    <p>R&D Engineer at Initiative Pvt Ltd</p>
+    <a href="#contact" class="btn">Get In Touch</a>
   </div>
 </section>
 
+<!-- ABOUT -->
 <section id="about">
-  <div class="container">
+  <div class="container" style="text-align:center">
     <h2>About Me</h2>
-    <div class="about-box">
-      Passionate R&D and Quality Engineer with hands-on experience in electronics product testing,
-      system validation, and field deployment. Strong focus on reliability, performance, and
-      customer-centric engineering solutions.
-    </div>
+    <p style="margin-top:20px; max-width:700px; margin-left:auto; margin-right:auto;">
+      Electronics & Telecommunication engineer with a strong background in R&D, testing, and product prototyping. Passionate about turning innovative ideas into reliable hardware & software solutions.
+    </p>
   </div>
 </section>
 
-<section id="rnd">
-  <div class="circuit"></div>
-  <div class="container">
-    <h2 style="color:#e5e7eb">R&D in Electronics</h2>
-    <div class="nodes">
-      <div class="node"><h3>Prototyping</h3><ul><li>PCB & Component Testing</li></ul></div>
-      <div class="node"><h3>Integration</h3><ul><li>Hardware–Software Validation</li></ul></div>
-      <div class="node"><h3>Data Flow</h3><ul><li>Signal & Sensor Analysis</li></ul></div>
-      <div class="node"><h3>Reliability</h3><ul><li>Environmental & Stress Testing</li></ul></div>
-    </div>
-  </div>
-</section>
-
+<!-- SKILLS -->
 <section id="skills">
   <div class="container">
-    <h2>Skills</h2>
-    <div class="skill-group">
-      <h3>Testing & R&D</h3>
-      <div class="skill-grid">
-        <div class="skill-box"><h4>Manual Testing</h4><ul><li>Functional</li><li>Regression</li></ul></div>
-        <div class="skill-box"><h4>Electronics</h4><ul><li>PCB Testing</li><li>Debugging</li></ul></div>
+    <h2 style="text-align:center;margin-bottom:40px">Skills</h2>
+    <div class="skills-container">
+      <div class="skill-card"><i class="fas fa-microchip"></i><h4>Electronics</h4></div>
+      <div class="skill-card"><i class="fas fa-chart-bar"></i><h4>Power BI</h4></div>
+      <div class="skill-card"><i class="fas fa-database"></i><h4>SQL</h4></div>
+      <div class="skill-card"><i class="fas fa-code"></i><h4>DAX</h4></div>
+      <div class="skill-card"><i class="fas fa-cloud"></i><h4>Azure</h4></div>
+      <div class="skill-card"><i class="fas fa-project-diagram"></i><h4>R&D</h4></div>
+      <div class="skill-card"><i class="fas fa-robot"></i><h4>Automation</h4></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <h2 style="text-align:center;margin-bottom:40px">Projects</h2>
+    <p style="text-align:center;">Project details coming soon...</p>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <h2 style="text-align:center;margin-bottom:40px">Experience</h2>
+    <p style="text-align:center;">Jr Testing Engineer at SuryaLogix (Sep 2023 - Jan 2025)</p>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="container">
+    <h2 style="text-align:center;margin-bottom:40px">Certifications</h2>
+    <p style="text-align:center;">Details coming soon...</p>
+  </div>
+</section>
+
+<!-- R&D -->
+<section id="rnd">
+  <div class="container">
+    <h2 style="color:#10b981">R&D in Electronics</h2>
+    <div class="nodes">
+      <div class="node">
+        <h3>Prototyping</h3>
+        <ul><li>PCB & Component Testing</li></ul>
+        <span class="spark"></span>
+      </div>
+      <div class="node">
+        <h3>Integration</h3>
+        <ul><li>Hardware–Software Validation</li></ul>
+        <span class="spark"></span>
+      </div>
+      <div class="node">
+        <h3>Data Flow</h3>
+        <ul><li>Signal & Sensor Analysis</li></ul>
+        <span class="spark"></span>
+      </div>
+      <div class="node">
+        <h3>Reliability</h3>
+        <ul><li>Environmental & Stress Testing</li></ul>
+        <span class="spark"></span>
       </div>
     </div>
   </div>
 </section>
 
-<section id="projects">
-  <div class="container">
-    <h2>Projects</h2>
-    <div class="card-grid">
-      <div class="card">Electronics Product Validation System</div>
-      <div class="card">Field Testing & Deployment Tool</div>
-    </div>
-  </div>
-</section>
-
-<section id="experience">
-  <div class="container">
-    <h2>Experience</h2>
-    <div class="card-grid">
-      <div class="card">R&D / Quality Engineer – Company Name</div>
-    </div>
-  </div>
-</section>
-
-<section id="certifications">
-  <div class="container">
-    <h2>Certifications</h2>
-    <div class="card-grid">
-      <div class="card">Software Testing Certification</div>
-      <div class="card">Electronics Fundamentals</div>
-    </div>
-  </div>
-</section>
-
+<!-- CONTACT -->
 <section id="contact">
-  <div class="container">
-    <h2 style="color:#e5e7eb">Contact</h2>
-    <div class="contact-links">
-      <a href="#"><i class="fab fa-linkedin"></i></a>
-      <a href="#"><i class="fab fa-github"></i></a>
-      <a href="mailto:email@example.com"><i class="fas fa-envelope"></i></a>
-    </div>
+  <div class="container" style="text-align:center">
+    <h2>Get In Touch</h2>
+    <p style="margin:20px 0">karishma.shaikh@example.com</p>
+    <a href="mailto:karishma.shaikh@example.com" class="btn">Email Me</a>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  © 2026 | Professional Portfolio
+  <div class="container">
+    <div class="social-links">
+      <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+    <p>© <span id="year"></span> Karishma Shaikh</p>
+  </div>
 </footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
+
 
 
 
