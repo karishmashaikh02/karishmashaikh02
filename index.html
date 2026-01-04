@@ -6,236 +6,272 @@
 <title>Professional Portfolio | R&D & Quality Engineer</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --primary:#0f172a;
+:root{
+  --primary:#020617;
   --secondary:#2563eb;
   --accent:#22c55e;
   --bg:#f8fafc;
 }
 
-* {margin:0;padding:0;box-sizing:border-box;font-family:Montserrat,Arial;}
-body {background:var(--bg);color:#1e293b;}
-section {padding:90px 20px;}
-.container {max-width:1200px;margin:auto;}
-h2{text-align:center;font-size:34px;margin-bottom:60px;color:var(--primary);}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Montserrat;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:#1e293b;}
 
-/* ================= R&D ELECTRONICS ANIMATION ================= */
-#rnd {
+/* ================= NAVBAR ================= */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:#020617;
+  z-index:1000;
+}
+nav ul{
+  display:flex;
+  justify-content:center;
+  list-style:none;
+  padding:15px;
+}
+nav ul li a{
+  color:#e5e7eb;
+  text-decoration:none;
+  margin:0 15px;
+  font-weight:500;
+}
+nav ul li a:hover{color:var(--accent);}
+
+/* ================= GENERAL ================= */
+section{padding:100px 20px;}
+.container{max-width:1200px;margin:auto;}
+h2{text-align:center;font-size:34px;margin-bottom:50px;color:var(--primary);}
+
+/* ================= HOME ================= */
+#home{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   background:linear-gradient(135deg,#020617,#020617);
+  color:#e5e7eb;
+  text-align:center;
+}
+#home h1{font-size:48px;margin-bottom:10px;}
+#home p{font-size:18px;color:#94a3b8;}
+
+/* ================= ABOUT ================= */
+.about-box{
+  max-width:900px;
+  margin:auto;
+  background:#fff;
+  padding:40px;
+  border-radius:20px;
+  box-shadow:0 15px 40px rgba(0,0,0,.08);
+}
+
+/* ================= R&D ELECTRONICS ================= */
+#rnd{
+  background:#020617;
   color:#e5e7eb;
   position:relative;
   overflow:hidden;
 }
-
-.circuit {
+.circuit{
   position:absolute;
   inset:0;
   background:
     repeating-linear-gradient(90deg, rgba(34,197,94,.08) 0 2px, transparent 2px 60px),
     repeating-linear-gradient(0deg, rgba(34,197,94,.05) 0 2px, transparent 2px 60px);
-  animation:moveCircuit 20s linear infinite;
+  animation:move 20s linear infinite;
 }
-
-@keyframes moveCircuit {
-  from {background-position:0 0;}
-  to {background-position:600px 600px;}
+@keyframes move{
+  from{background-position:0 0;}
+  to{background-position:600px 600px;}
 }
-
-.nodes {
+.nodes{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:40px;
+  gap:35px;
   position:relative;
   z-index:2;
 }
-
-.node {
+.node{
   background:rgba(15,23,42,.9);
+  padding:25px;
   border-radius:18px;
-  padding:28px;
-  box-shadow:0 0 0 rgba(34,197,94,.6);
   animation:pulse 3s infinite;
 }
-
-@keyframes pulse {
-  0% {box-shadow:0 0 0 rgba(34,197,94,.6);}
-  70% {box-shadow:0 0 25px rgba(34,197,94,.7);}
-  100% {box-shadow:0 0 0 rgba(34,197,94,.6);}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 rgba(34,197,94,.6);}
+  70%{box-shadow:0 0 25px rgba(34,197,94,.8);}
+  100%{box-shadow:0 0 0 rgba(34,197,94,.6);}
 }
-
-.node h3 {
-  color:var(--accent);
-  margin-bottom:12px;
-}
-
-.node ul {list-style:none;font-size:14px;}
-.node ul li {padding:6px 0;}
+.node h3{color:var(--accent);margin-bottom:10px;}
+.node ul{list-style:none;font-size:14px;}
+.node ul li{padding:6px 0;}
 
 /* ================= SKILLS ================= */
-.skill-group {margin-bottom:70px;}
+.skill-group{margin-bottom:60px;}
 .skill-group h3{text-align:center;margin-bottom:25px;color:var(--secondary);}
-
-.skill-grid {
+.skill-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:25px;
 }
-
-.skill-box {
+.skill-box{
   background:#fff;
+  padding:25px;
   border-radius:18px;
-  padding:24px;
-  box-shadow:0 10px 30px rgba(0,0,0,.08);
-  transition:.3s;
+  box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+.skill-box h4{margin-bottom:10px;}
+.skill-box ul{list-style:none;font-size:14px;}
+.skill-box ul li{padding:5px 0;}
+
+/* ================= CARDS ================= */
+.card-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+.card{
+  background:#fff;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 15px 40px rgba(0,0,0,.08);
 }
 
-.skill-box:hover {transform:translateY(-8px);}
-.skill-box h4 {color:var(--primary);margin-bottom:10px;}
-.skill-box ul {list-style:none;font-size:14px;}
-.skill-box ul li {padding:5px 0;}
+/* ================= CONTACT ================= */
+#contact{
+  background:#020617;
+  color:#e5e7eb;
+}
+.contact-links{
+  text-align:center;
+}
+.contact-links a{
+  color:#e5e7eb;
+  font-size:24px;
+  margin:0 12px;
+}
+.contact-links a:hover{color:var(--accent);}
 
 /* ================= FOOTER ================= */
-footer {
+footer{
   background:#020617;
-  color:#94a3b8;
   text-align:center;
-  padding:30px;
+  padding:20px;
+  color:#94a3b8;
 }
 </style>
 </head>
 
 <body>
 
-<!-- ================= R&D ELECTRONICS ================= -->
+<nav>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section id="home">
+  <div>
+    <h1>Your Name</h1>
+    <p>R&D | Electronics | Quality Engineering Professional</p>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <h2>About Me</h2>
+    <div class="about-box">
+      Passionate R&D and Quality Engineer with hands-on experience in electronics product testing,
+      system validation, and field deployment. Strong focus on reliability, performance, and
+      customer-centric engineering solutions.
+    </div>
+  </div>
+</section>
+
 <section id="rnd">
   <div class="circuit"></div>
   <div class="container">
-    <h2 style="color:#e5e7eb">R&D in Electronics & Product Engineering</h2>
-
+    <h2 style="color:#e5e7eb">R&D in Electronics</h2>
     <div class="nodes">
-      <div class="node">
-        <h3>Prototype Development</h3>
-        <ul>
-          <li>Electronics Prototype Validation</li>
-          <li>Board-Level Testing</li>
-          <li>Component Compatibility</li>
-        </ul>
-      </div>
+      <div class="node"><h3>Prototyping</h3><ul><li>PCB & Component Testing</li></ul></div>
+      <div class="node"><h3>Integration</h3><ul><li>Hardware–Software Validation</li></ul></div>
+      <div class="node"><h3>Data Flow</h3><ul><li>Signal & Sensor Analysis</li></ul></div>
+      <div class="node"><h3>Reliability</h3><ul><li>Environmental & Stress Testing</li></ul></div>
+    </div>
+  </div>
+</section>
 
-      <div class="node">
-        <h3>Signal & Data Flow</h3>
-        <ul>
-          <li>Sensor Data Analysis</li>
-          <li>Input / Output Verification</li>
-          <li>Noise & Stability Checks</li>
-        </ul>
-      </div>
-
-      <div class="node">
-        <h3>Hardware–Software Integration</h3>
-        <ul>
-          <li>Firmware Validation</li>
-          <li>Protocol Testing</li>
-          <li>System Calibration</li>
-        </ul>
-      </div>
-
-      <div class="node">
-        <h3>Field & Reliability Testing</h3>
-        <ul>
-          <li>Environmental Testing</li>
-          <li>Long-Run Stability</li>
-          <li>Failure Analysis</li>
-        </ul>
+<section id="skills">
+  <div class="container">
+    <h2>Skills</h2>
+    <div class="skill-group">
+      <h3>Testing & R&D</h3>
+      <div class="skill-grid">
+        <div class="skill-box"><h4>Manual Testing</h4><ul><li>Functional</li><li>Regression</li></ul></div>
+        <div class="skill-box"><h4>Electronics</h4><ul><li>PCB Testing</li><li>Debugging</li></ul></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= SKILLS ================= -->
-<section id="skills">
+<section id="projects">
   <div class="container">
-    <h2>Professional Skills</h2>
-
-    <div class="skill-group">
-      <h3>Testing & Quality Engineering</h3>
-      <div class="skill-grid">
-        <div class="skill-box">
-          <h4>Manual Testing</h4>
-          <ul>
-            <li>Test Case & Scenario Design</li>
-            <li>Functional & Regression Testing</li>
-            <li>Smoke & Sanity Testing</li>
-          </ul>
-        </div>
-
-        <div class="skill-box">
-          <h4>Defect Management</h4>
-          <ul>
-            <li>Bug Reporting & Tracking</li>
-            <li>Root Cause Analysis</li>
-            <li>Verification & Retesting</li>
-          </ul>
-        </div>
-      </div>
+    <h2>Projects</h2>
+    <div class="card-grid">
+      <div class="card">Electronics Product Validation System</div>
+      <div class="card">Field Testing & Deployment Tool</div>
     </div>
+  </div>
+</section>
 
-    <div class="skill-group">
-      <h3>Electronics & R&D</h3>
-      <div class="skill-grid">
-        <div class="skill-box">
-          <h4>Electronics Testing</h4>
-          <ul>
-            <li>PCB Testing</li>
-            <li>Power & Signal Validation</li>
-            <li>Hardware Debugging</li>
-          </ul>
-        </div>
-
-        <div class="skill-box">
-          <h4>Product Engineering</h4>
-          <ul>
-            <li>Prototype Evaluation</li>
-            <li>Installation & Field Support</li>
-            <li>Customer Demonstrations</li>
-          </ul>
-        </div>
-      </div>
+<section id="experience">
+  <div class="container">
+    <h2>Experience</h2>
+    <div class="card-grid">
+      <div class="card">R&D / Quality Engineer – Company Name</div>
     </div>
+  </div>
+</section>
 
-    <div class="skill-group">
-      <h3>Professional Strengths</h3>
-      <div class="skill-grid">
-        <div class="skill-box">
-          <h4>Core Skills</h4>
-          <ul>
-            <li>Analytical Thinking</li>
-            <li>Attention to Detail</li>
-            <li>Problem Solving</li>
-          </ul>
-        </div>
+<section id="certifications">
+  <div class="container">
+    <h2>Certifications</h2>
+    <div class="card-grid">
+      <div class="card">Software Testing Certification</div>
+      <div class="card">Electronics Fundamentals</div>
+    </div>
+  </div>
+</section>
 
-        <div class="skill-box">
-          <h4>Work Ethic</h4>
-          <ul>
-            <li>Cross-Team Collaboration</li>
-            <li>Deadline Ownership</li>
-            <li>Continuous Learning</li>
-          </ul>
-        </div>
-      </div>
+<section id="contact">
+  <div class="container">
+    <h2 style="color:#e5e7eb">Contact</h2>
+    <div class="contact-links">
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="mailto:email@example.com"><i class="fas fa-envelope"></i></a>
     </div>
   </div>
 </section>
 
 <footer>
-  © 2026 | R&D & Quality Engineering Portfolio
+  © 2026 | Professional Portfolio
 </footer>
 
 </body>
 </html>
+
 
 
 
