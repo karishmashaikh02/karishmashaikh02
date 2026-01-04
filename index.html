@@ -3,359 +3,240 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Karishma Shaikh | R&D & Testing Engineer</title>
+<title>Professional Portfolio | R&D & Quality Engineer</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Montserrat',sans-serif;
-}
-
-:root{
-  --primary:#6366f1;
-  --secondary:#0f172a;
-  --accent:#f59e0b;
-  --text:#334155;
+:root {
+  --primary:#0f172a;
+  --secondary:#2563eb;
+  --accent:#22c55e;
   --bg:#f8fafc;
 }
 
-body{
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.6;
-}
+* {margin:0;padding:0;box-sizing:border-box;font-family:Montserrat,Arial;}
+body {background:var(--bg);color:#1e293b;}
+section {padding:90px 20px;}
+.container {max-width:1200px;margin:auto;}
+h2{text-align:center;font-size:34px;margin-bottom:60px;color:var(--primary);}
 
-.container{
-  max-width:1200px;
-  margin:auto;
-  padding:0 20px;
-}
-
-section{padding:90px 0}
-h1,h2,h3{color:var(--secondary)}
-
-/* HEADER */
-header{
-  position:fixed;
-  width:100%;
-  top:0;
-  background:rgba(255,255,255,.9);
-  backdrop-filter:blur(10px);
-  z-index:1000;
-  border-bottom:1px solid #e2e8f0;
-}
-
-nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:18px 0;
-}
-
-.logo{
-  font-size:24px;
-  font-weight:700;
-  background:linear-gradient(135deg,var(--primary),#4f46e5);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-.nav-links{
-  display:flex;
-  list-style:none;
-}
-
-.nav-links li{margin-left:28px}
-.nav-links a{text-decoration:none;color:var(--text);font-weight:500}
-
-/* HERO */
-.hero{
-  padding:180px 0 150px;
-  background:linear-gradient(270deg,#6366f1,#f59e0b,#818cf8,#4f46e5);
-  background-size:800% 800%;
-  animation:gradient 18s ease infinite;
-  text-align:center;
-  color:white;
+/* ================= R&D ELECTRONICS ANIMATION ================= */
+#rnd {
+  background:linear-gradient(135deg,#020617,#020617);
+  color:#e5e7eb;
   position:relative;
   overflow:hidden;
 }
 
-@keyframes gradient{
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
-}
-
-/* BI BACKGROUND */
-.bi-bg{
+.circuit {
   position:absolute;
   inset:0;
-  pointer-events:none;
-  z-index:1;
+  background:
+    repeating-linear-gradient(90deg, rgba(34,197,94,.08) 0 2px, transparent 2px 60px),
+    repeating-linear-gradient(0deg, rgba(34,197,94,.05) 0 2px, transparent 2px 60px);
+  animation:moveCircuit 20s linear infinite;
 }
 
-.data-grid{
-  position:absolute;
-  left:6%;
-  top:40%;
-  width:260px;
+@keyframes moveCircuit {
+  from {background-position:0 0;}
+  to {background-position:600px 600px;}
+}
+
+.nodes {
   display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:6px;
-  opacity:.18;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:40px;
+  position:relative;
+  z-index:2;
 }
 
-.data-grid span{
-  height:16px;
-  background:white;
-  border-radius:4px;
+.node {
+  background:rgba(15,23,42,.9);
+  border-radius:18px;
+  padding:28px;
+  box-shadow:0 0 0 rgba(34,197,94,.6);
   animation:pulse 3s infinite;
 }
 
-.charts{
-  position:absolute;
-  right:6%;
-  top:36%;
-  width:260px;
-  opacity:.22;
+@keyframes pulse {
+  0% {box-shadow:0 0 0 rgba(34,197,94,.6);}
+  70% {box-shadow:0 0 25px rgba(34,197,94,.7);}
+  100% {box-shadow:0 0 0 rgba(34,197,94,.6);}
 }
 
-.line-chart polyline{
-  fill:none;
-  stroke:white;
-  stroke-width:3;
-  stroke-dasharray:300;
-  stroke-dashoffset:300;
-  animation:draw 4s infinite;
+.node h3 {
+  color:var(--accent);
+  margin-bottom:12px;
 }
 
-.bar-chart{
-  display:flex;
-  gap:12px;
-  height:80px;
-  align-items:flex-end;
-  margin-top:25px;
-}
+.node ul {list-style:none;font-size:14px;}
+.node ul li {padding:6px 0;}
 
-.bar-chart div{
-  width:28px;
-  background:white;
-  border-radius:6px 6px 0 0;
-  animation:bar 3s infinite;
-}
+/* ================= SKILLS ================= */
+.skill-group {margin-bottom:70px;}
+.skill-group h3{text-align:center;margin-bottom:25px;color:var(--secondary);}
 
-@keyframes draw{
-  0%{stroke-dashoffset:300}
-  50%{stroke-dashoffset:0}
-  100%{stroke-dashoffset:300}
-}
-@keyframes bar{
-  0%,100%{transform:scaleY(.4)}
-  50%{transform:scaleY(1)}
-}
-@keyframes pulse{
-  0%,100%{opacity:.4}
-  50%{opacity:1}
-}
-
-.hero .container{position:relative;z-index:3}
-
-.profile-img{
-  width:240px;
-  height:240px;
-  border-radius:50%;
-  border:5px solid rgba(255,255,255,.3);
-  margin-bottom:25px;
-}
-
-.hero h1{font-size:46px}
-.hero p{font-size:20px;margin:12px 0 30px}
-
-/* CARDS */
-.card{
-  background:white;
-  padding:30px;
-  border-radius:16px;
-  box-shadow:0 12px 30px rgba(0,0,0,.07);
-  margin-bottom:30px;
-}
-
-/* SKILLS */
-.skill-group{margin-bottom:60px}
-.skill-group h3{text-align:center;margin-bottom:25px}
-
-.skill-grid{
+.skill-grid {
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:25px;
 }
 
-.skill-box{
-  background:rgba(255,255,255,.9);
-  border-radius:16px;
-  padding:22px;
+.skill-box {
+  background:#fff;
+  border-radius:18px;
+  padding:24px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
   transition:.3s;
 }
 
-.skill-box:hover{transform:translateY(-8px)}
-.skill-box h4{color:var(--primary);margin-bottom:10px;font-size:16px}
+.skill-box:hover {transform:translateY(-8px);}
+.skill-box h4 {color:var(--primary);margin-bottom:10px;}
+.skill-box ul {list-style:none;font-size:14px;}
+.skill-box ul li {padding:5px 0;}
 
-.skill-box ul{list-style:none;font-size:14px}
-.skill-box ul li{padding:4px 0;color:#475569}
-
-/* FOOTER */
-footer{
-  background:linear-gradient(135deg,#0f172a,#1e293b);
-  color:white;
+/* ================= FOOTER ================= */
+footer {
+  background:#020617;
+  color:#94a3b8;
   text-align:center;
-  padding:45px 0;
-}
-
-.social-links{
-  display:flex;
-  justify-content:center;
-  gap:22px;
-  margin-bottom:25px;
-}
-
-.social-links a{color:white;font-size:22px}
-
-@media(max-width:768px){
-  .hero h1{font-size:32px}
+  padding:30px;
 }
 </style>
 </head>
 
 <body>
 
-<header>
+<!-- ================= R&D ELECTRONICS ================= -->
+<section id="rnd">
+  <div class="circuit"></div>
   <div class="container">
-    <nav>
-      <div class="logo">Portfolio</div>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#education">Education</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+    <h2 style="color:#e5e7eb">R&D in Electronics & Product Engineering</h2>
 
-<section id="home" class="hero">
-<div class="bi-bg">
-  <div class="data-grid">
-    <span></span><span></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span><span></span><span></span>
-  </div>
-  <div class="charts">
-    <svg class="line-chart" width="260" height="80">
-      <polyline points="0,60 40,40 80,45 120,20 160,35 200,15 260,30"/>
-    </svg>
-    <div class="bar-chart">
-      <div></div><div></div><div></div><div></div>
+    <div class="nodes">
+      <div class="node">
+        <h3>Prototype Development</h3>
+        <ul>
+          <li>Electronics Prototype Validation</li>
+          <li>Board-Level Testing</li>
+          <li>Component Compatibility</li>
+        </ul>
+      </div>
+
+      <div class="node">
+        <h3>Signal & Data Flow</h3>
+        <ul>
+          <li>Sensor Data Analysis</li>
+          <li>Input / Output Verification</li>
+          <li>Noise & Stability Checks</li>
+        </ul>
+      </div>
+
+      <div class="node">
+        <h3>Hardware–Software Integration</h3>
+        <ul>
+          <li>Firmware Validation</li>
+          <li>Protocol Testing</li>
+          <li>System Calibration</li>
+        </ul>
+      </div>
+
+      <div class="node">
+        <h3>Field & Reliability Testing</h3>
+        <ul>
+          <li>Environmental Testing</li>
+          <li>Long-Run Stability</li>
+          <li>Failure Analysis</li>
+        </ul>
+      </div>
     </div>
   </div>
-</div>
-
-<div class="container">
-  <img src="https://via.placeholder.com/240" class="profile-img">
-  <h1>Karishma Shaikh</h1>
-  <p>R&D Engineer | Testing & Quality Assurance</p>
-  <p>Pune, Maharashtra, India</p>
-</div>
 </section>
 
-<!-- SKILLS -->
+<!-- ================= SKILLS ================= -->
 <section id="skills">
-<div class="container">
-<h2 style="text-align:center;margin-bottom:50px">Professional Skills</h2>
+  <div class="container">
+    <h2>Professional Skills</h2>
 
-<div class="skill-group">
-<h3>Testing & Quality Engineering</h3>
-<div class="skill-grid">
-  <div class="skill-box"><h4>Manual Testing</h4><ul><li>Test Case Design</li><li>Functional Testing</li><li>Regression Testing</li><li>Smoke & Sanity</li></ul></div>
-  <div class="skill-box"><h4>Product Testing</h4><ul><li>End-to-End Validation</li><li>System Testing</li><li>UAT Support</li></ul></div>
-  <div class="skill-box"><h4>Defect Management</h4><ul><li>Bug Tracking</li><li>Root Cause Analysis</li><li>Re-testing</li></ul></div>
-</div>
-</div>
+    <div class="skill-group">
+      <h3>Testing & Quality Engineering</h3>
+      <div class="skill-grid">
+        <div class="skill-box">
+          <h4>Manual Testing</h4>
+          <ul>
+            <li>Test Case & Scenario Design</li>
+            <li>Functional & Regression Testing</li>
+            <li>Smoke & Sanity Testing</li>
+          </ul>
+        </div>
 
-<div class="skill-group">
-<h3>R&D & Engineering</h3>
-<div class="skill-grid">
-  <div class="skill-box"><h4>R&D Support</h4><ul><li>Prototype Testing</li><li>Feasibility Study</li><li>Performance Analysis</li></ul></div>
-  <div class="skill-box"><h4>Customer Handling</h4><ul><li>On-site Installation</li><li>Client Training</li><li>Issue Resolution</li></ul></div>
-</div>
-</div>
+        <div class="skill-box">
+          <h4>Defect Management</h4>
+          <ul>
+            <li>Bug Reporting & Tracking</li>
+            <li>Root Cause Analysis</li>
+            <li>Verification & Retesting</li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-<div class="skill-group">
-<h3>Tools & Process</h3>
-<div class="skill-grid">
-  <div class="skill-box"><h4>Tools</h4><ul><li>Bug Tracking Tools</li><li>Documentation Tools</li><li>Basic Automation Exposure</li></ul></div>
-  <div class="skill-box"><h4>Methodologies</h4><ul><li>SDLC / STLC</li><li>QA Best Practices</li><li>Process Improvement</li></ul></div>
-</div>
-</div>
+    <div class="skill-group">
+      <h3>Electronics & R&D</h3>
+      <div class="skill-grid">
+        <div class="skill-box">
+          <h4>Electronics Testing</h4>
+          <ul>
+            <li>PCB Testing</li>
+            <li>Power & Signal Validation</li>
+            <li>Hardware Debugging</li>
+          </ul>
+        </div>
 
-<div class="skill-group">
-<h3>Professional Strengths</h3>
-<div class="skill-grid">
-  <div class="skill-box"><h4>Core Skills</h4><ul><li>Analytical Thinking</li><li>Attention to Detail</li><li>Problem Solving</li></ul></div>
-  <div class="skill-box"><h4>Work Ethic</h4><ul><li>Team Collaboration</li><li>Deadline Driven</li><li>Continuous Learning</li></ul></div>
-</div>
-</div>
+        <div class="skill-box">
+          <h4>Product Engineering</h4>
+          <ul>
+            <li>Prototype Evaluation</li>
+            <li>Installation & Field Support</li>
+            <li>Customer Demonstrations</li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-</div>
-</section>
+    <div class="skill-group">
+      <h3>Professional Strengths</h3>
+      <div class="skill-grid">
+        <div class="skill-box">
+          <h4>Core Skills</h4>
+          <ul>
+            <li>Analytical Thinking</li>
+            <li>Attention to Detail</li>
+            <li>Problem Solving</li>
+          </ul>
+        </div>
 
-<!-- EXPERIENCE -->
-<section id="experience">
-<div class="container">
-<h2 style="text-align:center;margin-bottom:40px">Experience</h2>
-<div class="card">
-  <h3>Jr Testing Engineer</h3>
-  <p>SuryaLogix · Full-time | Sep 2023 – Jan 2025</p>
-  <p style="margin-top:15px">
-    Responsible for testing newly developed products, performing system and field
-    testing, coordinating with R&D teams, supporting customer installations, and
-    ensuring quality delivery within project timelines.
-  </p>
-</div>
-</div>
-</section>
-
-<!-- EDUCATION -->
-<section id="education">
-<div class="container">
-<h2 style="text-align:center;margin-bottom:40px">Education</h2>
-<div class="card">
-  <h3>B.Tech – Electronics & Telecommunication</h3>
-  <p>KIT's College of Engineering (Empowered Autonomous), Kolhapur</p>
-  <p>2020 – 2023</p>
-</div>
-</div>
+        <div class="skill-box">
+          <h4>Work Ethic</h4>
+          <ul>
+            <li>Cross-Team Collaboration</li>
+            <li>Deadline Ownership</li>
+            <li>Continuous Learning</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <footer>
-<div class="container">
-  <div class="social-links">
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-    <a href="#"><i class="fab fa-github"></i></a>
-  </div>
-  <p>© <span id="year"></span> Karishma Shaikh</p>
-</div>
+  © 2026 | R&D & Quality Engineering Portfolio
 </footer>
-
-<script>
-document.getElementById("year").textContent=new Date().getFullYear();
-</script>
 
 </body>
 </html>
+
 
 
 
